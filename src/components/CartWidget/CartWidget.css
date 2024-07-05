@@ -1,0 +1,15 @@
+.cart {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.cartBadge {
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    padding: 1px 3px;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

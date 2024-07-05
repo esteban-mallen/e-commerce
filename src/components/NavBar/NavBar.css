@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    align-items: center;
+}
+.brand {
+    padding: 0 0 0 10px;
+    margin: 0;
+}
+.mainNavBar {
+    display: flex;
+    font-size: 35px;
+    align-items: center;
+    justify-content: space-between;
+}
+.navBarImg {
+    max-height: 50px;
+}
+.categories {
+    justify-content: center;
+    display: flex;
+}
