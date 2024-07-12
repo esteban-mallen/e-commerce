@@ -1,0 +1,20 @@
+.list {
+    display: flex;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@keyframes listChange {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.list > * {
+    animation-name: listChange;
+    animation-duration: 2s; /* you can change this time according to your needs */
+}

@@ -1,0 +1,13 @@
+.loadingSpinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 200px;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    .loadingSpinner {
+        filter: invert(100%);
+    }
+}

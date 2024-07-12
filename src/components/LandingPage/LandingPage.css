@@ -1,0 +1,27 @@
+.landingPage {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    color: #000000;
+    text-decoration: none; /* Ensure no underline for cleaner look */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: none; /* Underline on hover for emphasis */
+}
+
+@media (prefers-color-scheme: light) {
+    a {
+        color: #000000;
+    }
+
+    a:hover {
+        color: #000000;
+    }
+}

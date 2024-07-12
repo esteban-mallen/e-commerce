@@ -1,0 +1,34 @@
+.item-description {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: #f9f9f9;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    position: absolute;
+    top: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    opacity: 85%;
+}
+
+.item-description h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    .item-description {
+        border: 1px solid #444;
+        background-color: #333;
+    }
+
+    .item-description h2 {
+        color: #fff;
+    }
+}
