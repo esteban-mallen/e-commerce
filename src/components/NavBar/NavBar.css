@@ -1,22 +1,32 @@
 /* Default Light Mode Styles */
 nav {
-    background-color: #f8f9fa; /* Light background color for a clean look */
+    background-color: #ffffff; /* Light background color for a clean look */
     width: 100%;
     padding-bottom: 10px;
+}
+
+nav .link {
+    min-width: 100px;
 }
 
 .header {
     display: flex;
     align-items: center;
     padding: 10px 20px; /* Added padding for better spacing */
+    color: black;
 }
 
 .brand {
     padding: 0 0 0 15px; /* Slightly increased left padding */
     margin: 0;
-    font-size: 30px; /* Defined font size for consistency */
+    font-size: 35px; /* Defined font size for consistency */
     font-weight: bold; /* Added bold for emphasis */
     font-family: cursive;
+    text-wrap: nowrap;
+}
+
+.header-link:hover {
+    text-decoration: none;
 }
 
 .mainNavBar {
@@ -25,6 +35,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 0 20px; /* Added padding for spacing */
+    background-color: rgb(241, 241, 241);
 }
 
 .navBarImg {
@@ -35,6 +46,7 @@ nav {
     justify-content: center;
     display: flex;
     gap: 20px; /* Added gap between categories for better spacing */
+    background-color: rgb(241, 241, 241);
 }
 
 .categories .loadingSpinner {
