@@ -257,20 +257,16 @@ const plants = [
 const allItems = [...flowers, ...bouquets, ...plants];
 
 const itemMap = new Map([
-    [1, flowers],
-    [2, bouquets],
-    [3, plants],
+    ["1", flowers],
+    ["2", bouquets],
+    ["3", plants],
 ]);
-
-export const getRandomItem = async () => {
-    return allItems[Math.floor(Math.random() * allItems.length)];
-}
 
 export const getAllItems = async () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(allItems);
-        }, 1000);
+        }, 2000);
     });
 }
 
@@ -287,7 +283,7 @@ export const getItems = async (categoryId) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(itemMap.get(categoryId));
-        }, 1000);
+        }, 1500);
     });
 }
 

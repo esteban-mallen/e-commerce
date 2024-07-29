@@ -4,7 +4,7 @@ import ItemDescription from "../ItemDescription/ItemDescription.jsx";
 import ItemImage from "../ItemImage/ItemImage.jsx";
 import {useState} from "react";
 
-const Item = ({ item }) => {
+const Item = ({ item, fullView }) => {
     const [image, setImage] = useState(flower);
     loadImage(item.category, item.id).then((itemImagePath) => setImage(itemImagePath));
 
@@ -13,7 +13,7 @@ const Item = ({ item }) => {
             <div className={"item"}>
                 <div className={"itemDisplay"}>
                     <ItemImage image={image}/>
-                    <ItemDescription item={item}/>
+                    <ItemDescription item={item} showDescriptionText={fullView}/>
                 </div>
             </div>
         </>
