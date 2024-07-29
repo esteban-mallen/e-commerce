@@ -17,20 +17,16 @@
 .itemView .itemDisplay {
     display: flex;
     flex-direction: row;
+    gap: 20px;
 }
 
 .itemView .item-description {
     position: inherit;
+    margin: 0;
 }
 
 .itemView .item-description-text {
     margin: 15px;
-}
-
-.itemView:hover {
-    transform: scale(1.05); /* Slightly reduced zoom for a subtler effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-    transition: transform 0.3s, box-shadow 0.3s; /* Ensured transitions are smooth */
 }
 
 /* Dark Mode Styles */
