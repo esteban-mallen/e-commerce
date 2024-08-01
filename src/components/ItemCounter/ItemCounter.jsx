@@ -1,11 +1,11 @@
 import Button from "../Button/Button.jsx";
 import {useState} from "react";
-import "./AddItemCounter.css"
+import "./ItemCounter.css"
 
-const AddItemCounter = ({ itemStock, itemPrice }) => {
-    const [quantity, setQuantity] = useState(1);
-
+const ItemCounter = ({ itemStock, itemPrice }) => {
     const inStock = itemStock > 0;
+    const [quantity, setQuantity] = useState(inStock ? 1 : 0);
+
 
     return (
         <>
@@ -21,4 +21,4 @@ const AddItemCounter = ({ itemStock, itemPrice }) => {
     )
 }
 
-export default AddItemCounter
+export default ItemCounter
