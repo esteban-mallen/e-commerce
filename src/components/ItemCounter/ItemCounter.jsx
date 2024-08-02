@@ -1,11 +1,16 @@
 import Button from "../Button/Button.jsx";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import "./ItemCounter.css"
+import {cartContext} from "../../context/contexts.js";
 
-const ItemCounter = ({ itemStock, itemPrice }) => {
-    const inStock = itemStock > 0;
+const ItemCounter = ({ itemId, itemStock, itemPrice }) => {
+    const { cart, addItemToCart } = useContext(cartContext);
+    const itemsInCart = cart.get(itemId) || 0;
+    const inStock = itemStock > 0 && itemStock > itemsInCart;
     const [quantity, setQuantity] = useState(inStock ? 1 : 0);
-
+    const handleAddToCart = () => {
+        addItemToCart(itemId, quantity);
+    }
 
     return (
         <>
@@ -15,7 +20,7 @@ const ItemCounter = ({ itemStock, itemPrice }) => {
                     {quantity}
                     <Button disabled={quantity >= itemStock} onClick={() => setQuantity(quantity+1)}>+</Button>
                 </span>
-                <Button disabled={!inStock || quantity <= 0}>{inStock ? `Add to cart ($${quantity * itemPrice})` : 'Out of stock'}</Button>
+                <Button onClick={handleAddToCart} disabled={!inStock || quantity <= 0}>{inStock ? `Add to cart ($${quantity * itemPrice})` : 'Out of stock'}</Button>
             </div>
         </>
     )

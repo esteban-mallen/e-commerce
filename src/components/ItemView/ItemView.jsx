@@ -8,7 +8,7 @@ const ItemView = ({item}) => {
         <>
             <div className="itemView">
                 <Item key={item.id} item={item} fullView={true}/>
-                <ItemCounter itemStock={item.stock} itemPrice={item.price}/>
+                <ItemCounter itemId={item.id} itemStock={item.stock} itemPrice={item.price}/>
             </div>
         </>
     )
