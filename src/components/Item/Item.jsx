@@ -3,7 +3,7 @@ import ItemDescription from "../ItemDescription/ItemDescription.jsx";
 import ItemImage from "../ItemImage/ItemImage.jsx";
 
 const Item = ({ item, fullView }) => {
-    const imagePath = `https://res.cloudinary.com/dsx9cbedb/image/upload/v1722556222/${item.id}.png`;
+    const imagePath = `https://res.cloudinary.com/dsx9cbedb/image/upload/c_thumb,w_300/${item.id}.png`;
 
     return (
         <>
