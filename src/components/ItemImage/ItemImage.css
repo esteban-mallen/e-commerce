@@ -3,6 +3,13 @@
     border-radius: 10px;
 }
 
+.itemImage-spinner {
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (prefers-color-scheme: dark) {
     .itemImage {
         filter: brightness(80%);
