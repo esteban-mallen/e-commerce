@@ -3,13 +3,15 @@ import {useContext, useState} from "react";
 import "./ItemCounter.css"
 import {cartContext} from "../../context/contexts.js";
 
-const ItemCounter = ({ itemId, itemStock, itemPrice }) => {
+const ItemCounter = ({ item }) => {
+    const { id: itemId, stock: itemStock, price: itemPrice } = item;
     const { cart, addItemToCart } = useContext(cartContext);
     const itemsInCart = cart.get(itemId) || 0;
     const inStock = itemStock > 0 && itemStock > itemsInCart;
     const [quantity, setQuantity] = useState(inStock ? 1 : 0);
     const handleAddToCart = () => {
-        addItemToCart(itemId, quantity);
+        item.quantity = quantity;
+        addItemToCart(item);
     }
 
     return (

@@ -1,0 +1,83 @@
+:root {
+    /* Light mode colors */
+    --background-color: #f2f2f2;
+    --container-background-color: #ffffff;
+    --border-color: #ccc;
+    --text-color: #333;
+    --highlight-background-color: #f9f9f9;
+    --highlight-border-color: #ccc;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Dark mode colors */
+        --background-color: #1e1e1e;
+        --container-background-color: #2e2e2e;
+        --border-color: #444;
+        --text-color: #ddd;
+        --highlight-background-color: #3a3a3a;
+        --highlight-border-color: #555;
+    }
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.cart-view {
+    width: 100%;
+}
+
+.total-row {
+    text-align: right;
+}
+
+.cart-view-container {
+    background-color: var(--container-background-color);
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin: 30px auto;
+    max-width: 1200px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cart-item {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.cart-item tr {
+    height: 3em;
+    width: 100%;
+}
+
+.cart-item td {
+    vertical-align: middle;
+    height: 100%;
+    padding: 10px;
+    text-align: right;
+}
+
+.cart-item img {
+    border-radius: 5px;
+    max-height: 5em;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Styling for the total row */
+.total-row td {
+    text-align: right;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-top: 2px solid var(--highlight-border-color);
+    background-color: var(--highlight-background-color);
+    color: var(--text-color);
+}

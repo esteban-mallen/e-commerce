@@ -4,6 +4,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer.
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import ItemViewContainer from "./components/ItemViewContainer/ItemViewContainer.jsx";
 import CartContextProvider from "./context/cartContext.jsx";
+import CartViewContainer from "./components/CartViewContainer/CartViewContainer.jsx";
 
 const APP_NAME = "Steve's flower shop"
 
@@ -16,6 +17,7 @@ function App() {
                     <Routes>
                         <Route path='/' element={<ItemListContainer/>}/>
                         <Route path='*' element={<ItemListContainer/>}/>
+                        <Route path='/cart' element={<CartViewContainer/>}/>
                         <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
                         <Route path='/item/:itemId' element={<ItemViewContainer/>}/>
                     </Routes>
