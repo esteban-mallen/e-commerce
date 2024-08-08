@@ -1,0 +1,15 @@
+.cart-view {
+    width: 100%;
+}
+
+.total-row {
+    text-align: right;
+    font-weight: bold; /* Make the text bold */
+    padding: 10px 20px; /* Add padding for spacing */
+    border-top: 2px solid #ccc; /* Add a top border for separation */
+}
+
+.cart-controller {
+    display: flex;
+    justify-content: flex-end;
+}

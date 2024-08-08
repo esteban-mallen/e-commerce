@@ -1,0 +1,22 @@
+.cart-item {
+    width: 100%; /* Ensured the table takes full width */
+    border-collapse: collapse; /* Removed default spacing between cells */
+    margin-top: 20px; /* Added spacing from the top */
+}
+.cart-item tr {
+    height: 3em;
+    width: 100%;
+}
+.cart-item td {
+    vertical-align: middle; /* Corrected to middle alignment */
+    height: 100%;
+    padding: 10px; /* Added padding for better spacing */
+    text-align: center; /* Centered text inside cells */
+}
+.cart-item img {
+    border-radius: 5px; /* Increased border-radius for better visuals */
+    max-height: 5em;
+    width: auto; /* Ensured aspect ratio is maintained */
+    display: block; /* Removed inline-block display */
+    margin: 0 auto; /* Centered image inside cell */
+}
