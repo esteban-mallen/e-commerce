@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
-import {getItem} from "../../asyncMock.js";
 import {useParams} from "react-router-dom";
 import ItemView from "../ItemView/ItemView.jsx";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx";
 import "./ItemViewContainer.css"
+import {getItem} from "../../services/items.js";
 
 const ItemViewContainer = (props) => {
     const [item, setItem] = useState(null);

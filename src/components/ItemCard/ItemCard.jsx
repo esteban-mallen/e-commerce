@@ -7,7 +7,7 @@ const ItemCard = ({item}) => {
         <>
             <div className="itemCard">
                 <Item key={item.id} item={item}/>
-                <ButtonLink to={`/item/${item.id}`}>See more</ButtonLink>
+                <ButtonLink to={`/item/${item.firebaseId}`}>See more</ButtonLink>
             </div>
         </>
     )

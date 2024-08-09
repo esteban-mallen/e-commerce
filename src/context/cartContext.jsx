@@ -1,6 +1,5 @@
 import { cartContext } from "./contexts.js";
 import {useState} from "react";
-import item from "../components/Item/Item.jsx";
 
 const CartContextProvider = ({ children }) => {
     const [totalQuantity, setTotalQuantity] = useState(0);

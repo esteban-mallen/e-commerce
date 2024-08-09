@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 import './ItemListContainer.css'
-import {getAllItems, getItems} from "../../asyncMock.js";
 import ItemList from "../ItemList/ItemList.jsx";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx";
 import {useParams} from "react-router-dom";
+import {getAllItems, getItems} from "../../services/items.js";
 
 const ItemListContainer = () => {
     const [isLoading, setIsLoading] = useState(true);
