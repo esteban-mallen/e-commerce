@@ -17,7 +17,6 @@ export const getItems = async (categoryId) => {
     const itemsRef = query(
         collection(db, "items"),
         where("category", "==", Number(categoryId)),
-        orderBy("id"),
     );
     const snapshot = await getDocs(itemsRef);
     return snapshot.docs.map((doc) => {

@@ -1,0 +1,19 @@
+.checkout {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.checkout-form {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.checkout-form .loadingSpinner {
+    padding: 10px;
+    width: 100%;
+}

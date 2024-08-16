@@ -1,5 +1,6 @@
 import { cartContext } from "./contexts.js";
 import {useState} from "react";
+import item from "../components/Item/Item.jsx";
 
 const CartContextProvider = ({ children }) => {
     const [totalQuantity, setTotalQuantity] = useState(0);
@@ -10,7 +11,6 @@ const CartContextProvider = ({ children }) => {
         const { quantity: itemQuantityInCart } = itemInCart;
         item.quantity = itemQuantityInCart + quantity;
 
-        console.log(itemId, totalQuantity, quantity, item);
         setCart(cart.set(itemId, item));
         setTotalQuantity(totalQuantity + quantity);
     }
@@ -30,8 +30,29 @@ const CartContextProvider = ({ children }) => {
         setTotalQuantity(0);
     }
 
+    const removeItem = (itemId) => {
+        const { quantity } = cart.get(itemId);
+        cart.delete(itemId);
+        setTotalQuantity(totalQuantity - quantity);
+    }
+
+    const setItemQuantity = (item, quantity) => {
+        const { currentQuantity } = cart.get(item.id) || { quantity: 0 };
+        item.quantity = quantity;
+        cart.set(item.id, item)
+        setTotalQuantity(totalQuantity - currentQuantity + quantity);
+    }
+
+    const getCartTotal = () => {
+        let cartTotal = 0;
+        Array.from(cart.values()).forEach((item) => {
+            cartTotal += item.quantity * item.price;
+        });
+        return cartTotal;
+    }
+
     return(
-        <cartContext.Provider value={{ cart, totalQuantity, addItemToCart, getTotalPrice, emptyCart }}>
+        <cartContext.Provider value={{ cart, totalQuantity, addItemToCart, getTotalPrice, emptyCart, removeItem, setItemQuantity, getCartTotal }}>
             {children}
         </cartContext.Provider>
     )

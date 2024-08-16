@@ -20,3 +20,9 @@
     display: block; /* Removed inline-block display */
     margin: 0 auto; /* Centered image inside cell */
 }
+
+.remove-item-td {
+    max-width: 20px;
+    padding: 0;
+    margin: 0;
+}

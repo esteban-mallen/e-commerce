@@ -1,7 +1,12 @@
 import "./CartItem.css"
 import {Link} from "react-router-dom";
+import {useContext} from "react";
+import {cartContext} from "../../context/contexts.js";
+import Button from "../Button/Button.jsx";
+import ItemCounter from "../ItemCounter/ItemCounter.jsx";
 
 const CartItem = ({ item }) => {
+    const { removeItem, setItemQuantity } = useContext(cartContext);
     const { id, name, quantity, price } = item;
     return (
         <tr className={"cart-item"} key={id}>
@@ -18,6 +23,7 @@ const CartItem = ({ item }) => {
             <td>{quantity}</td>
             <td>${price}</td>
             <td>${price * quantity}</td>
+            <td className="remove-item-td"><Button onClick={() => removeItem(item.id)}>X</Button></td>
         </tr>
     );
 }

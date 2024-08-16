@@ -6,7 +6,7 @@ import {cartContext} from "../../context/contexts.js";
 const ItemCounter = ({ item }) => {
     const { id: itemId, stock: itemStock, price: itemPrice } = item;
     const { cart, addItemToCart } = useContext(cartContext);
-    const itemsInCart = cart.get(itemId) || 0;
+    const { quantity: itemsInCart} = cart.get(itemId) || { quantity: 0 };
     const inStock = itemStock > 0 && itemStock > itemsInCart;
     const [quantity, setQuantity] = useState(inStock ? 1 : 0);
     const handleAddToCart = () => {
