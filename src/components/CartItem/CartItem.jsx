@@ -11,12 +11,12 @@ const CartItem = ({ item }) => {
     return (
         <tr className={"cart-item"} key={id}>
             <td>
-                <Link to={`/cart/${id}`}>
-                    <img src={`https://res.cloudinary.com/dsx9cbedb/image/upload/c_thumb,w_80/${id}.png`}/>
+                <Link to={`/item/${id}`}>
+                    <img src={`https://res.cloudinary.com/dsx9cbedb/image/upload/c_thumb,w_80/${id}.png`} alt={name}/>
                 </Link>
             </td>
             <td>
-                <Link to={`/cart/${id}`}>
+                <Link to={`/item/${id}`}>
                     {name}
                 </Link>
             </td>
