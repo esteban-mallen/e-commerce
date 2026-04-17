@@ -1,22 +1,32 @@
 .link {
-    border-radius: 12px; /* Slightly more rounded corners */
+    display: inline-block;
+    border-radius: 12px;
     border: 1px solid transparent;
-    padding: 0.8em 1.5em; /* Increased padding for a more substantial feel */
+    padding: 0.8em 1.5em;
     background-color: #1a1a1a;
-    color: #ffffff; /* White text for better contrast */
-    margin-top: 10px;
-    margin-bottom: 10px;
+    color: #ffffff;
+    margin: 10px 0;
     text-align: center;
+    font-weight: 600;
+    transition: border-color 0.2s, box-shadow 0.2s, color 0.2s;
 }
 
 .link:hover {
-    color: #535bf2;
+    color: #ffffff;
+    border-color: #646cff;
     text-decoration: none;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.link:focus-visible {
+    outline: none;
+    border-color: #646cff;
+    box-shadow: 0 0 0 4px rgba(100, 108, 255, 0.5);
 }
 
 @media (prefers-color-scheme: light) {
-    link {
-        background-color: #f0f0f0; /* Slightly darker background for better contrast */
-        color: #1a1a1a; /* Dark text for light background */
+    .link {
+        background-color: #1a1a1a;
+        color: #ffffff;
     }
 }

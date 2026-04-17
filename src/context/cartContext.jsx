@@ -1,61 +1,60 @@
 import { cartContext } from "./contexts.js";
-import {useState} from "react";
-import item from "../components/Item/Item.jsx";
+import { useState } from "react";
 
 const CartContextProvider = ({ children }) => {
-    const [totalQuantity, setTotalQuantity] = useState(0);
     const [cart, setCart] = useState(new Map());
+
+    const totalQuantity = Array.from(cart.values()).reduce(
+        (sum, item) => sum + item.quantity,
+        0
+    );
+
     const addItemToCart = (item) => {
         const { id: itemId, quantity } = item;
-        const itemInCart = cart.get(itemId) || { quantity: 0 };
-        const { quantity: itemQuantityInCart } = itemInCart;
-        item.quantity = itemQuantityInCart + quantity;
+        const existing = cart.get(itemId);
+        const newQuantity = (existing?.quantity || 0) + quantity;
+        const next = new Map(cart);
+        next.set(itemId, { ...item, quantity: newQuantity });
+        setCart(next);
+    };
 
-        setCart(cart.set(itemId, item));
-        setTotalQuantity(totalQuantity + quantity);
-    }
-
-    const getTotalPrice = () => {
-        let total = 0;
-
-        Array.from(cart.values()).forEach((item) => {
-            total += item.price * item.quantity;
-        })
-
-        return total;
-    }
+    const getCartTotal = () =>
+        Array.from(cart.values()).reduce(
+            (total, item) => total + item.price * item.quantity,
+            0
+        );
 
     const emptyCart = () => {
         setCart(new Map());
-        setTotalQuantity(0);
-    }
+    };
 
     const removeItem = (itemId) => {
-        const { quantity } = cart.get(itemId);
-        cart.delete(itemId);
-        setTotalQuantity(totalQuantity - quantity);
-    }
+        const next = new Map(cart);
+        next.delete(itemId);
+        setCart(next);
+    };
 
     const setItemQuantity = (item, quantity) => {
-        const { currentQuantity } = cart.get(item.id) || { quantity: 0 };
-        item.quantity = quantity;
-        cart.set(item.id, item)
-        setTotalQuantity(totalQuantity - currentQuantity + quantity);
-    }
+        const next = new Map(cart);
+        next.set(item.id, { ...item, quantity });
+        setCart(next);
+    };
 
-    const getCartTotal = () => {
-        let cartTotal = 0;
-        Array.from(cart.values()).forEach((item) => {
-            cartTotal += item.quantity * item.price;
-        });
-        return cartTotal;
-    }
-
-    return(
-        <cartContext.Provider value={{ cart, totalQuantity, addItemToCart, getTotalPrice, emptyCart, removeItem, setItemQuantity, getCartTotal }}>
+    return (
+        <cartContext.Provider
+            value={{
+                cart,
+                totalQuantity,
+                addItemToCart,
+                emptyCart,
+                removeItem,
+                setItemQuantity,
+                getCartTotal,
+            }}
+        >
             {children}
         </cartContext.Provider>
-    )
-}
+    );
+};
 
 export default CartContextProvider;

@@ -1,19 +1,29 @@
 .checkout {
     display: flex;
     flex-direction: column;
-    align-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .checkout-form {
+    width: 100%;
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    align-items: flex-end;
+    gap: 14px;
+    align-items: stretch;
 }
 
 .checkout-form .loadingSpinner {
     padding: 10px;
     width: 100%;
+}
+
+.checkout-error {
+    color: #d93025;
+    background-color: rgba(217, 48, 37, 0.08);
+    border: 1px solid rgba(217, 48, 37, 0.3);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 0;
 }

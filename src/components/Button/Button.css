@@ -1,46 +1,50 @@
-button {
-    border-radius: 12px; /* Slightly more rounded corners */
+.button {
+    border-radius: 12px;
     border: 1px solid transparent;
-    padding: 0.8em 1.5em; /* Increased padding for a more substantial feel */
+    padding: 0.8em 1.5em;
     font-size: 1em;
-    font-weight: 600; /* Slightly bolder font */
+    font-weight: 600;
     font-family: inherit;
     background-color: #1a1a1a;
-    color: #ffffff; /* White text for better contrast */
+    color: #ffffff;
     cursor: pointer;
-    transition: border-color 0.25s, box-shadow 0.25s; /* Added box-shadow transition */
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.1s;
     margin: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-button:hover:enabled {
+.button:hover:enabled {
     border-color: #646cff;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-button:focus,
-button:focus-visible {
-    outline: none; /* Removed default outline */
+.button:active:enabled {
+    transform: translateY(1px);
+}
+
+.button:focus,
+.button:focus-visible {
+    outline: none;
     border-color: #646cff;
-    box-shadow: 0 0 0 4px rgba(100, 108, 255, 0.5); /* Custom focus shadow */
+    box-shadow: 0 0 0 4px rgba(100, 108, 255, 0.5);
 }
 
-button:disabled {
+.button:disabled {
     cursor: not-allowed;
-    opacity: 0.6; /* Reduced opacity for disabled state */
+    opacity: 0.6;
 }
 
 @media (prefers-color-scheme: light) {
-    button {
-        background-color: #f0f0f0; /* Slightly darker background for better contrast */
-        color: #1a1a1a; /* Dark text for light background */
+    .button {
+        background-color: #1a1a1a;
+        color: #ffffff;
     }
-    button:hover:enabled {
+    .button:hover:enabled {
         border-color: #646cff;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Same enhanced shadow */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
-    button:focus,
-    button:focus-visible {
-        box-shadow: 0 0 0 4px rgba(100, 108, 255, 0.5); /* Same custom focus shadow */
+    .button:focus,
+    .button:focus-visible {
+        box-shadow: 0 0 0 4px rgba(100, 108, 255, 0.5);
     }
 }
