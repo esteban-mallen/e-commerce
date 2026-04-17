@@ -12,22 +12,23 @@ const APP_NAME = "Steve's flower shop"
 
 function App() {
     return (
-        <>
-            <CartContextProvider>
-                <BrowserRouter>
-                    <NavBar>{APP_NAME}</NavBar>
+        <CartContextProvider>
+            <BrowserRouter>
+                <a className="skip-link" href="#main">Skip to content</a>
+                <NavBar>{APP_NAME}</NavBar>
+                <main id="main">
                     <Routes>
                         <Route path='/' element={<ItemListContainer/>}/>
-                        <Route path='*' element={<ItemListContainer/>}/>
                         <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
                         <Route path='/item/:itemId' element={<ItemViewContainer/>}/>
                         <Route path='/cart' element={<CartViewContainer/>}/>
                         <Route path='/checkout' element={<Checkout/>}/>
                         <Route path='/order' element={<OrderView/>}/>
+                        <Route path='*' element={<ItemListContainer/>}/>
                     </Routes>
-                </BrowserRouter>
-            </CartContextProvider>
-        </>
+                </main>
+            </BrowserRouter>
+        </CartContextProvider>
     )
 }
 

@@ -1,6 +1,9 @@
 .itemImage {
     max-height: 300px;
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
+    object-fit: contain;
 }
 
 .itemImage-spinner {

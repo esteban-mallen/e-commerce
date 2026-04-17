@@ -6,14 +6,12 @@ const Item = ({ item, fullView }) => {
     const imagePath = `https://res.cloudinary.com/dsx9cbedb/image/upload/c_thumb,w_300/${item.id}.png`;
 
     return (
-        <>
-            <div className={"item"}>
-                <div className={"itemDisplay"}>
-                    <ItemImage image={imagePath}/>
-                    <ItemDescription item={item} showDescriptionText={fullView}/>
-                </div>
+        <div className={"item"}>
+            <div className={"itemDisplay"}>
+                <ItemImage image={imagePath} alt={item.name}/>
+                <ItemDescription item={item} showDescriptionText={fullView}/>
             </div>
-        </>
+        </div>
     )
 }
 

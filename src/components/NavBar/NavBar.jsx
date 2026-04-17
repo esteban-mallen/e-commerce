@@ -6,36 +6,47 @@ import {getCategories} from "../../services/categories";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx";
 import ButtonLink from "../ButtonLink/ButtonLink.jsx";
 
-const NavBar = (props) => {
-    const { children } = props;
+const NavBar = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [categories, setCategories] = useState([]);
+
     useEffect(() => {
+        let active = true;
         getCategories()
-            .then((categories) => {
+            .then((fetched) => {
+                if (!active) return;
+                setCategories(fetched);
+            })
+            .catch(() => {
+                if (!active) return;
+                setCategories([]);
+            })
+            .finally(() => {
+                if (!active) return;
                 setIsLoading(false);
-                setCategories(categories);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+            });
+        return () => { active = false; };
     }, []);
 
-    const categoryButtons = isLoading ? (<LoadingSpinner/>)
-        : categories.map((category) => (<ButtonLink to={`/category/${category.id}`} key={category.id}>{category.name}</ButtonLink>))
+    const categoryButtons = isLoading
+        ? <LoadingSpinner/>
+        : categories.map((category) => (
+            <ButtonLink to={`/category/${category.id}`} key={category.id}>
+                {category.name}
+            </ButtonLink>
+        ));
 
-    return(
-        <>
-            <nav>
-                <div className={"mainNavBar"}>
-                    <Header>{children}</Header>
-                    <CartWidget/>
-                </div>
-                <div className={"categories"}>
-                    {categoryButtons}
-                </div>
-            </nav>
-        </>
+    return (
+        <nav aria-label="Main navigation">
+            <div className={"mainNavBar"}>
+                <Header>{children}</Header>
+                <CartWidget/>
+            </div>
+            <div className={"categories"}>
+                <ButtonLink to="/">All</ButtonLink>
+                {categoryButtons}
+            </div>
+        </nav>
     )
 }
 

@@ -6,16 +6,19 @@ import {Link} from "react-router-dom";
 
 const CartWidget = () => {
     const { totalQuantity } = useContext(cartContext);
+    const label = totalQuantity === 1
+        ? "View cart (1 item)"
+        : `View cart (${totalQuantity} items)`;
 
     return (
-        <>
-            <Link to="/cart">
-                <div className={"cart"}>
-                    <img src={cartLogo} className={"cartLogo"}/>
-                    <span className="cartBadge">{totalQuantity}</span>
-                </div>
-            </Link>
-        </>
+        <Link to="/cart" className="cart-link" aria-label={label}>
+            <div className={"cart"}>
+                <img src={cartLogo} className={"cartLogo"} alt="" aria-hidden="true"/>
+                {totalQuantity > 0 && (
+                    <span className="cartBadge" aria-hidden="true">{totalQuantity}</span>
+                )}
+            </div>
+        </Link>
     )
 }
 

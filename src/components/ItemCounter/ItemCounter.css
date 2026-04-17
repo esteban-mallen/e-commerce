@@ -4,5 +4,27 @@
     align-items: center;
     margin: 15px;
     justify-content: center;
-    gap: 20px
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.item-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.item-counter-value {
+    min-width: 2ch;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.stock-indicator {
+    font-size: 0.9em;
+    opacity: 0.75;
+    margin: 0;
+    width: 100%;
+    text-align: center;
 }

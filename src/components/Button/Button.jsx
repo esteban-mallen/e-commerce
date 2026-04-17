@@ -1,9 +1,16 @@
 import "./Button.css"
 
-const Button = (props) => {
+const Button = ({ type = "button", disabled, onClick, title, children, ariaLabel }) => {
     return (
-        <button type={props.type} disabled={props.disabled} className="button" onClick={props.onClick} title={props.title}>
-            {props.children}
+        <button
+            type={type}
+            disabled={disabled}
+            className="button"
+            onClick={onClick}
+            title={title}
+            aria-label={ariaLabel}
+        >
+            {children}
         </button>
     )
 }
