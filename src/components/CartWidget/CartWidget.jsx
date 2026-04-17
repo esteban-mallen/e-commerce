@@ -8,15 +8,15 @@ const CartWidget = () => {
     const { totalQuantity } = useContext(cartContext);
 
     return (
-        <>
-            <Link to="/cart">
-                <div className={"cart"}>
-                    <img src={cartLogo} className={"cartLogo"}/>
-                    <span className="cartBadge">{totalQuantity}</span>
-                </div>
-            </Link>
-        </>
-    )
-}
+        <Link to="/cart" aria-label={`Shopping cart, ${totalQuantity} item${totalQuantity !== 1 ? 's' : ''}`}>
+            <div className="cart">
+                <img src={cartLogo} className="cartLogo" alt="Shopping cart"/>
+                {totalQuantity > 0 && (
+                    <span className="cartBadge" aria-hidden="true">{totalQuantity}</span>
+                )}
+            </div>
+        </Link>
+    );
+};
 
-export default CartWidget
+export default CartWidget;

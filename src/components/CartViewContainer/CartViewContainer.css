@@ -81,3 +81,14 @@ body {
     background-color: var(--highlight-background-color);
     color: var(--text-color);
 }
+
+.empty-cart {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-color);
+}
+
+.empty-cart p {
+    font-size: 1.1em;
+    margin-bottom: 12px;
+}

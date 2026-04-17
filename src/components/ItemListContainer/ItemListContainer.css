@@ -1,3 +1,12 @@
-.loadingSpinner {
+.search-results-label {
+    text-align: center;
+    color: #666;
+    font-size: 0.95em;
+    margin: 16px 0 4px;
+}
 
+@media (prefers-color-scheme: dark) {
+    .search-results-label {
+        color: #aaa;
+    }
 }

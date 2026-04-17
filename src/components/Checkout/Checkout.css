@@ -17,3 +17,10 @@
     padding: 10px;
     width: 100%;
 }
+
+.checkout-error {
+    color: #e53e3e;
+    font-size: 0.9em;
+    text-align: center;
+    margin: 0;
+}
